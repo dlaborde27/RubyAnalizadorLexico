@@ -52,6 +52,16 @@ tokens = (
     'MODULO',
     'MULTIPLY',
     'PLUS',
+
+    # Operadores de comparación
+    'CASE_EQUAL',
+    'EQUAL',
+    'GREATER_THAN',
+    'GREATER_THAN_EQUAL',
+    'LESS_THAN',
+    'LESS_THAN_EQUAL',
+    'NOT_EQUAL',
+    'SPACESHIP',
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 
 
@@ -78,6 +88,16 @@ t_MINUS = r'-'
 t_MODULO = r'%'
 t_MULTIPLY = r'\*'
 t_PLUS = r'\+'
+
+# Operadores de comparación
+t_CASE_EQUAL = r'==='
+t_EQUAL = r'=='
+t_GREATER_THAN = r'>'
+t_GREATER_THAN_EQUAL = r'>='
+t_LESS_THAN = r'<'
+t_LESS_THAN_EQUAL = r'<='
+t_NOT_EQUAL = r'!='
+t_SPACESHIP = r'<=>'
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 
 
