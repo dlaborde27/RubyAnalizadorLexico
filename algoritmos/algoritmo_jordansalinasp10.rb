@@ -22,3 +22,15 @@ puts mi_conjunto.inspect  # Salida: #<Set: {1, 2, 3, 4, 5, 6}>
 # Eliminar un elemento
 mi_conjunto.delete(3)
 puts mi_conjunto.inspect  # Salida: #<Set: {1, 2, 4, 5, 6}>
+
+
+
+=begin
+Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+Donec rutrum congue leo eget malesuada.
+Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+=end
+
+# Prueba 2
+#prueba3
