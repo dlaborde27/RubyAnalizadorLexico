@@ -25,6 +25,16 @@ palabras_reservadas = {
 
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+# Otros términos o métodos comunes
+    'array': 'ARRAY',
+    'chomp': 'CHOMP',
+    'defined?': 'DEFINED',
+    'gets': 'GETS',
+    'new': 'NEW',
+    'puts': 'PUTS',
+    'redo': 'REDO',
+    'to_f': 'TO_F',
+    'to_i': 'TO_I'
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
 
@@ -66,6 +76,45 @@ tokens = (
 
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+# Puntuación y operadores de separación
+    'COLON',
+    'COMMA',
+    'DOT',
+    'HASH',
+    'PERCENT_W',
+    'LEFT_PAR',
+    'RIGHT_PAR',
+    'LEFT_COR',
+    'RIGHT_COR',
+
+    # Operadores de asignación
+    'ASSIGN',
+    'DIVIDE_ASSIGN',
+    'MODULO_ASSIGN',
+    'MULTIPLY_ASSIGN',
+    'PLUS_ASSIGN',
+    'EXPONENT_ASSIGN',
+    'MINUS_ASSIGN',
+
+
+    # Operadores lógicos y de bits
+    'AND',
+    'NOT',
+    'OR',
+    'BIT_AND',
+    'BIT_OR',
+
+
+    # Caracteres especiales y de escape
+    'BACKSLASH',
+    'NEWLINE',
+    'SPACE',
+    'TAB',
+    'DOUBLE_QUOTE',
+
+    # Rango y otros operadores especiales
+    'RANGE_EX',
+    'RANGE_IN',
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
 
@@ -102,6 +151,39 @@ t_SPACESHIP = r'<=>'
 
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+# Puntuación y operadores de separación
+t_COLON = r':'
+t_COMMA = r','
+t_DOT = r'\.'
+t_HASH = r'\{[^{}]*\}'
+t_PERCENT_W = r'%\w'
+t_LEFT_PAR = r'\('
+t_RIGHT_PAR = r'\)'
+t_LEFT_COR = r'\['
+t_RIGHT_COR = r'\]'
+
+# Operadores de asignación
+t_ASSIGN = r'='
+t_DIVIDE_ASSIGN = r'/='
+t_EXPONENT_ASSIGN = r'\*\*='
+t_MINUS_ASSIGN = r'-='
+t_MODULO_ASSIGN = r'%='
+t_MULTIPLY_ASSIGN = r'\*='
+t_PLUS_ASSIGN = r'\+='
+
+# Operadores lógicos y de bits
+t_AND = r'&'
+t_BIT_AND = r'&'
+t_BIT_OR = r'\|'
+t_NOT = r'!'
+t_OR = r'\|'
+
+# Caracteres especiales y de escape
+t_SPACE = r'\s'
+
+# Rango y otros operadores especiales
+t_RANGE_EX = r'\.\.\.'
+t_RANGE_IN = r'\.\.'
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
 
@@ -141,6 +223,27 @@ t_ignore = ' \t'
 
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+def t_NEWLINE(t):
+    r'\\n'
+    t.value = '\n'
+    return t
+
+def t_TAB(t):
+    r'\\t'
+    t.value = '\t'
+    return t
+
+def t_BACKSLASH(t):
+    r'\\\\'
+    t.value = '\\'
+    return t
+
+def t_DOUBLE_QUOTE(t):
+    r'\\"'
+    t.value = '"'
+    return t
+
+
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
 

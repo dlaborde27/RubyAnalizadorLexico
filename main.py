@@ -7,3 +7,4 @@ with open(ruta_archivo, 'r') as archivo:
     algoritmo_ruby = archivo.read()
 fecha_hora = datetime.datetime.now()
 analizador.ejecutarAnalizador(algoritmo_ruby, usuario_github, fecha_hora)
+
