@@ -2,6 +2,7 @@ import ply.lex as lex
 
 palabras_reservadas = {
 #INICIO DARIO LABORDE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO DARIO LABORDE
+    # Palabras reservadas
     'begin': 'BEGIN',
     'break': 'BREAK',
     'case': 'CASE',
@@ -22,10 +23,8 @@ palabras_reservadas = {
     'when': 'WHEN',
     'while': 'WHILE',
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
-
-
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
-# Otros términos o métodos comunes
+    # Otros términos o métodos comunes
     'array': 'ARRAY',
     'chomp': 'CHOMP',
     'defined?': 'DEFINED',
@@ -36,8 +35,6 @@ palabras_reservadas = {
     'to_f': 'TO_F',
     'to_i': 'TO_I'
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
-
-
 }
 
 tokens = (
@@ -73,10 +70,8 @@ tokens = (
     'NOT_EQUAL',
     'SPACESHIP',
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
-
-
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
-# Puntuación y operadores de separación
+    # Puntuación y operadores de separación
     'COLON',
     'COMMA',
     'DOT',
@@ -96,14 +91,12 @@ tokens = (
     'EXPONENT_ASSIGN',
     'MINUS_ASSIGN',
 
-
     # Operadores lógicos y de bits
     'AND',
     'NOT',
     'OR',
     'BIT_AND',
     'BIT_OR',
-
 
     # Caracteres especiales y de escape
     'BACKSLASH',
@@ -116,8 +109,6 @@ tokens = (
     'RANGE_EX',
     'RANGE_IN',
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
-
-
 ) + tuple(palabras_reservadas.values())
 
 #INICIO DARIO LABORDE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO DARIO LABORDE
@@ -148,7 +139,6 @@ t_LESS_THAN_EQUAL = r'<='
 t_NOT_EQUAL = r'!='
 t_SPACESHIP = r'<=>'
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
-
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
 # Puntuación y operadores de separación
@@ -186,7 +176,6 @@ t_RANGE_EX = r'\.\.\.'
 t_RANGE_IN = r'\.\.'
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
-
 #INICIO DARIO LABORDE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO DARIO LABORDE
 # Variables y constantes
 def t_LOCAL_VARIABLE(t):
@@ -221,7 +210,6 @@ def t_newLine(t):
 t_ignore = ' \t'
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 
-
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
 def t_COMMENT(t):
     r'\#.*'
@@ -246,10 +234,7 @@ def t_DOUBLE_QUOTE(t):
     r'\\"'
     t.value = '"'
     return t
-
-
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
-
 
 #INICIO DARIO LABORDE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO DARIO LABORDE
 def ejecutarAnalizador(algoritmo_ruby, usuario_github, fecha_hora):
