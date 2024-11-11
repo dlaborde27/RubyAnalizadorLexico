@@ -223,6 +223,10 @@ t_ignore = ' \t'
 
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+def t_COMMENT(t):
+    r'\#.*'
+    pass
+
 def t_NEWLINE(t):
     r'\\n'
     t.value = '\n'
