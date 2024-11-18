@@ -1,0 +1,2241 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AMPERSAND
+    BACKSLASH
+    BEGIN
+    BOOLEAN
+    BREAK
+    CALL
+    CASE
+    CLASS
+    COLON
+    DEF
+    DEFINED
+    DIVIDE
+    DIVIDE_ASSIGN
+    DO
+    DOUBLE_QUOTE
+    ELSIF
+    EXPONENT
+    EXPONENT_ASSIGN
+    FOR
+    HASH
+    IN
+    MINUS
+    MINUS_ASSIGN
+    MODULE
+    MODULO
+    MODULO_ASSIGN
+    MULTIPLY
+    MULTIPLY_ASSIGN
+    NOT
+    PIPE
+    PLUS
+    PLUS_ASSIGN
+    PROC
+    RANGE_EX
+    RANGE_IN
+    REDO
+    RETURN
+    SELF
+    SET
+    TAB
+    THEN
+    TO_I
+    UNLESS
+    UNTIL
+    WHEN
+    WHILE
+
+Grammar
+
+Rule 0     S' -> codigo
+Rule 1     codigo -> puts
+Rule 2     codigo -> gets
+Rule 3     codigo -> estructura_datos
+Rule 4     codigo -> estructura_control
+Rule 5     codigo -> llamada_metodo
+Rule 6     codigo -> declaracion_variable
+Rule 7     codigo -> almacenar_resultado_condicional
+Rule 8     codigo -> declaracion_estructura_datos
+Rule 9     codigo -> condiciones_con_conectores
+Rule 10    estructura_datos -> array
+Rule 11    estructura_datos -> variable_arreglo
+Rule 12    estructura_datos -> acceder_arreglo
+Rule 13    estructura_control -> if_statement
+Rule 14    declaracion_variable -> variable ASSIGN value
+Rule 15    almacenar_resultado_condicional -> variable ASSIGN condiciones
+Rule 16    declaracion_estructura_datos -> variable_arreglo
+Rule 17    condiciones_con_conectores -> condiciones conectores condiciones
+Rule 18    llamada_metodo -> variable LEFT_PAR values RIGHT_PAR
+Rule 19    llamada_metodo -> variable LEFT_PAR RIGHT_PAR
+Rule 20    value -> variable
+Rule 21    value -> numero
+Rule 22    value -> STRING
+Rule 23    value -> NIL
+Rule 24    value -> SYMBOL
+Rule 25    values_space -> value
+Rule 26    values_space -> value SPACE values_space
+Rule 27    values -> value
+Rule 28    values -> value COMMA values
+Rule 29    variable -> LOCAL_VARIABLE
+Rule 30    variable -> INSTANCE_VARIABLE
+Rule 31    variable -> CLASS_VARIABLE
+Rule 32    variable -> GLOBAL_VARIABLE
+Rule 33    variable -> CONSTANT
+Rule 34    numero -> FLOAT
+Rule 35    numero -> INTEGER
+Rule 36    gets -> GETS DOT CHOMP DOT TO_F
+Rule 37    gets -> GETS DOT CHOMP
+Rule 38    puts -> PUTS values
+Rule 39    array -> array_explicito
+Rule 40    array -> array_implicito
+Rule 41    array -> array_creacion
+Rule 42    array -> array_new
+Rule 43    array_explicito -> LEFT_COR values RIGHT_COR
+Rule 44    array_explicito -> LEFT_COR RIGHT_COR
+Rule 45    array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR
+Rule 46    array_implicito -> PERCENT_W LEFT_COR RIGHT_COR
+Rule 47    array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR
+Rule 48    array_new -> ARRAY DOT NEW
+Rule 49    array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+Rule 50    array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+Rule 51    variable_arreglo -> variable
+Rule 52    variable_arreglo -> variable ASSIGN array
+Rule 53    acceder_arreglo -> variable_arreglo LEFT_COR INTEGER RIGHT_COR
+Rule 54    if_statement -> IF condiciones NEWLINE codigo END
+Rule 55    if_statement -> IF condiciones NEWLINE codigo else_statement END
+Rule 56    else_statement -> ELSE NEWLINE codigo
+Rule 57    condiciones -> condicion
+Rule 58    condiciones -> condiciones conectores condiciones
+Rule 59    condicion -> numero operador_comparacion numero
+Rule 60    condicion -> variable operador_comparacion numero
+Rule 61    condicion -> numero operador_comparacion variable
+Rule 62    conectores -> AND
+Rule 63    conectores -> OR
+Rule 64    conectores -> AND_RESERVED
+Rule 65    conectores -> OR_RESERVED
+Rule 66    operador_comparacion -> CASE_EQUAL
+Rule 67    operador_comparacion -> EQUAL
+Rule 68    operador_comparacion -> GREATER_THAN
+Rule 69    operador_comparacion -> GREATER_THAN_EQUAL
+Rule 70    operador_comparacion -> LESS_THAN
+Rule 71    operador_comparacion -> LESS_THAN_EQUAL
+Rule 72    operador_comparacion -> NOT_EQUAL
+Rule 73    operador_comparacion -> SPACESHIP
+
+Terminals, with rules where they appear
+
+AMPERSAND            : 
+AND                  : 62
+AND_RESERVED         : 64
+ARRAY                : 47 48 49 50
+ASSIGN               : 14 15 52
+BACKSLASH            : 
+BEGIN                : 
+BOOLEAN              : 
+BREAK                : 
+CALL                 : 
+CASE                 : 
+CASE_EQUAL           : 66
+CHOMP                : 36 37
+CLASS                : 
+CLASS_VARIABLE       : 31
+COLON                : 
+COMMA                : 28 50
+CONSTANT             : 33
+DEF                  : 
+DEFINED              : 
+DIVIDE               : 
+DIVIDE_ASSIGN        : 
+DO                   : 
+DOT                  : 36 36 37 48 49 50
+DOUBLE_QUOTE         : 
+ELSE                 : 56
+ELSIF                : 
+END                  : 54 55
+EQUAL                : 67
+EXPONENT             : 
+EXPONENT_ASSIGN      : 
+FLOAT                : 34
+FOR                  : 
+GETS                 : 36 37
+GLOBAL_VARIABLE      : 32
+GREATER_THAN         : 68
+GREATER_THAN_EQUAL   : 69
+HASH                 : 
+IF                   : 54 55
+IN                   : 
+INSTANCE_VARIABLE    : 30
+INTEGER              : 35 49 50 53
+LEFT_COR             : 43 44 45 46 53
+LEFT_PAR             : 18 19 47 49 50
+LESS_THAN            : 70
+LESS_THAN_EQUAL      : 71
+LOCAL_VARIABLE       : 29
+MINUS                : 
+MINUS_ASSIGN         : 
+MODULE               : 
+MODULO               : 
+MODULO_ASSIGN        : 
+MULTIPLY             : 
+MULTIPLY_ASSIGN      : 
+NEW                  : 48 49 50
+NEWLINE              : 54 55 56
+NIL                  : 23
+NOT                  : 
+NOT_EQUAL            : 72
+OR                   : 63
+OR_RESERVED          : 65
+PERCENT_W            : 45 46
+PIPE                 : 
+PLUS                 : 
+PLUS_ASSIGN          : 
+PROC                 : 
+PUTS                 : 38
+RANGE_EX             : 
+RANGE_IN             : 
+REDO                 : 
+RETURN               : 
+RIGHT_COR            : 43 44 45 46 53
+RIGHT_PAR            : 18 19 47 49 50
+SELF                 : 
+SET                  : 
+SPACE                : 26
+SPACESHIP            : 73
+STRING               : 22
+SYMBOL               : 24
+TAB                  : 
+THEN                 : 
+TO_F                 : 36
+TO_I                 : 
+UNLESS               : 
+UNTIL                : 
+WHEN                 : 
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+acceder_arreglo      : 12
+almacenar_resultado_condicional : 7
+array                : 10 52
+array_creacion       : 41
+array_explicito      : 39 47
+array_implicito      : 40
+array_new            : 42
+codigo               : 54 55 56 0
+condicion            : 57
+condiciones          : 15 17 17 54 55 58 58
+condiciones_con_conectores : 9
+conectores           : 17 58
+declaracion_estructura_datos : 8
+declaracion_variable : 6
+else_statement       : 55
+estructura_control   : 4
+estructura_datos     : 3
+gets                 : 2
+if_statement         : 13
+llamada_metodo       : 5
+numero               : 21 59 59 60 61
+operador_comparacion : 59 60 61
+puts                 : 1
+value                : 14 25 26 27 28
+values               : 18 28 38 43 50
+values_space         : 26 45
+variable             : 14 15 18 19 20 51 52 60 61
+variable_arreglo     : 11 16 53
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . codigo
+    (1) codigo -> . puts
+    (2) codigo -> . gets
+    (3) codigo -> . estructura_datos
+    (4) codigo -> . estructura_control
+    (5) codigo -> . llamada_metodo
+    (6) codigo -> . declaracion_variable
+    (7) codigo -> . almacenar_resultado_condicional
+    (8) codigo -> . declaracion_estructura_datos
+    (9) codigo -> . condiciones_con_conectores
+    (38) puts -> . PUTS values
+    (36) gets -> . GETS DOT CHOMP DOT TO_F
+    (37) gets -> . GETS DOT CHOMP
+    (10) estructura_datos -> . array
+    (11) estructura_datos -> . variable_arreglo
+    (12) estructura_datos -> . acceder_arreglo
+    (13) estructura_control -> . if_statement
+    (18) llamada_metodo -> . variable LEFT_PAR values RIGHT_PAR
+    (19) llamada_metodo -> . variable LEFT_PAR RIGHT_PAR
+    (14) declaracion_variable -> . variable ASSIGN value
+    (15) almacenar_resultado_condicional -> . variable ASSIGN condiciones
+    (16) declaracion_estructura_datos -> . variable_arreglo
+    (17) condiciones_con_conectores -> . condiciones conectores condiciones
+    (39) array -> . array_explicito
+    (40) array -> . array_implicito
+    (41) array -> . array_creacion
+    (42) array -> . array_new
+    (51) variable_arreglo -> . variable
+    (52) variable_arreglo -> . variable ASSIGN array
+    (53) acceder_arreglo -> . variable_arreglo LEFT_COR INTEGER RIGHT_COR
+    (54) if_statement -> . IF condiciones NEWLINE codigo END
+    (55) if_statement -> . IF condiciones NEWLINE codigo else_statement END
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (43) array_explicito -> . LEFT_COR values RIGHT_COR
+    (44) array_explicito -> . LEFT_COR RIGHT_COR
+    (45) array_implicito -> . PERCENT_W LEFT_COR values_space RIGHT_COR
+    (46) array_implicito -> . PERCENT_W LEFT_COR RIGHT_COR
+    (47) array_creacion -> . ARRAY LEFT_PAR array_explicito RIGHT_PAR
+    (48) array_new -> . ARRAY DOT NEW
+    (49) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    PUTS            shift and go to state 11
+    GETS            shift and go to state 12
+    IF              shift and go to state 25
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    LEFT_COR        shift and go to state 23
+    PERCENT_W       shift and go to state 32
+    ARRAY           shift and go to state 33
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    codigo                         shift and go to state 1
+    puts                           shift and go to state 2
+    gets                           shift and go to state 3
+    estructura_datos               shift and go to state 4
+    estructura_control             shift and go to state 5
+    llamada_metodo                 shift and go to state 6
+    declaracion_variable           shift and go to state 7
+    almacenar_resultado_condicional shift and go to state 8
+    declaracion_estructura_datos   shift and go to state 9
+    condiciones_con_conectores     shift and go to state 10
+    array                          shift and go to state 13
+    variable_arreglo               shift and go to state 14
+    acceder_arreglo                shift and go to state 15
+    if_statement                   shift and go to state 16
+    variable                       shift and go to state 17
+    condiciones                    shift and go to state 18
+    array_explicito                shift and go to state 19
+    array_implicito                shift and go to state 20
+    array_creacion                 shift and go to state 21
+    array_new                      shift and go to state 22
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+
+state 1
+
+    (0) S' -> codigo .
+
+
+
+state 2
+
+    (1) codigo -> puts .
+
+    $end            reduce using rule 1 (codigo -> puts .)
+    END             reduce using rule 1 (codigo -> puts .)
+    ELSE            reduce using rule 1 (codigo -> puts .)
+
+
+state 3
+
+    (2) codigo -> gets .
+
+    $end            reduce using rule 2 (codigo -> gets .)
+    END             reduce using rule 2 (codigo -> gets .)
+    ELSE            reduce using rule 2 (codigo -> gets .)
+
+
+state 4
+
+    (3) codigo -> estructura_datos .
+
+    $end            reduce using rule 3 (codigo -> estructura_datos .)
+    END             reduce using rule 3 (codigo -> estructura_datos .)
+    ELSE            reduce using rule 3 (codigo -> estructura_datos .)
+
+
+state 5
+
+    (4) codigo -> estructura_control .
+
+    $end            reduce using rule 4 (codigo -> estructura_control .)
+    END             reduce using rule 4 (codigo -> estructura_control .)
+    ELSE            reduce using rule 4 (codigo -> estructura_control .)
+
+
+state 6
+
+    (5) codigo -> llamada_metodo .
+
+    $end            reduce using rule 5 (codigo -> llamada_metodo .)
+    END             reduce using rule 5 (codigo -> llamada_metodo .)
+    ELSE            reduce using rule 5 (codigo -> llamada_metodo .)
+
+
+state 7
+
+    (6) codigo -> declaracion_variable .
+
+    $end            reduce using rule 6 (codigo -> declaracion_variable .)
+    END             reduce using rule 6 (codigo -> declaracion_variable .)
+    ELSE            reduce using rule 6 (codigo -> declaracion_variable .)
+
+
+state 8
+
+    (7) codigo -> almacenar_resultado_condicional .
+
+    $end            reduce using rule 7 (codigo -> almacenar_resultado_condicional .)
+    END             reduce using rule 7 (codigo -> almacenar_resultado_condicional .)
+    ELSE            reduce using rule 7 (codigo -> almacenar_resultado_condicional .)
+
+
+state 9
+
+    (8) codigo -> declaracion_estructura_datos .
+
+    $end            reduce using rule 8 (codigo -> declaracion_estructura_datos .)
+    END             reduce using rule 8 (codigo -> declaracion_estructura_datos .)
+    ELSE            reduce using rule 8 (codigo -> declaracion_estructura_datos .)
+
+
+state 10
+
+    (9) codigo -> condiciones_con_conectores .
+
+    $end            reduce using rule 9 (codigo -> condiciones_con_conectores .)
+    END             reduce using rule 9 (codigo -> condiciones_con_conectores .)
+    ELSE            reduce using rule 9 (codigo -> condiciones_con_conectores .)
+
+
+state 11
+
+    (38) puts -> PUTS . values
+    (27) values -> . value
+    (28) values -> . value COMMA values
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    values                         shift and go to state 36
+    value                          shift and go to state 37
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 12
+
+    (36) gets -> GETS . DOT CHOMP DOT TO_F
+    (37) gets -> GETS . DOT CHOMP
+
+    DOT             shift and go to state 43
+
+
+state 13
+
+    (10) estructura_datos -> array .
+
+    $end            reduce using rule 10 (estructura_datos -> array .)
+    END             reduce using rule 10 (estructura_datos -> array .)
+    ELSE            reduce using rule 10 (estructura_datos -> array .)
+
+
+state 14
+
+    (11) estructura_datos -> variable_arreglo .
+    (16) declaracion_estructura_datos -> variable_arreglo .
+    (53) acceder_arreglo -> variable_arreglo . LEFT_COR INTEGER RIGHT_COR
+
+  ! reduce/reduce conflict for $end resolved using rule 11 (estructura_datos -> variable_arreglo .)
+  ! reduce/reduce conflict for END resolved using rule 11 (estructura_datos -> variable_arreglo .)
+  ! reduce/reduce conflict for ELSE resolved using rule 11 (estructura_datos -> variable_arreglo .)
+    $end            reduce using rule 11 (estructura_datos -> variable_arreglo .)
+    END             reduce using rule 11 (estructura_datos -> variable_arreglo .)
+    ELSE            reduce using rule 11 (estructura_datos -> variable_arreglo .)
+    LEFT_COR        shift and go to state 44
+
+  ! $end            [ reduce using rule 16 (declaracion_estructura_datos -> variable_arreglo .) ]
+  ! END             [ reduce using rule 16 (declaracion_estructura_datos -> variable_arreglo .) ]
+  ! ELSE            [ reduce using rule 16 (declaracion_estructura_datos -> variable_arreglo .) ]
+
+
+state 15
+
+    (12) estructura_datos -> acceder_arreglo .
+
+    $end            reduce using rule 12 (estructura_datos -> acceder_arreglo .)
+    END             reduce using rule 12 (estructura_datos -> acceder_arreglo .)
+    ELSE            reduce using rule 12 (estructura_datos -> acceder_arreglo .)
+
+
+state 16
+
+    (13) estructura_control -> if_statement .
+
+    $end            reduce using rule 13 (estructura_control -> if_statement .)
+    END             reduce using rule 13 (estructura_control -> if_statement .)
+    ELSE            reduce using rule 13 (estructura_control -> if_statement .)
+
+
+state 17
+
+    (18) llamada_metodo -> variable . LEFT_PAR values RIGHT_PAR
+    (19) llamada_metodo -> variable . LEFT_PAR RIGHT_PAR
+    (14) declaracion_variable -> variable . ASSIGN value
+    (15) almacenar_resultado_condicional -> variable . ASSIGN condiciones
+    (51) variable_arreglo -> variable .
+    (52) variable_arreglo -> variable . ASSIGN array
+    (60) condicion -> variable . operador_comparacion numero
+    (66) operador_comparacion -> . CASE_EQUAL
+    (67) operador_comparacion -> . EQUAL
+    (68) operador_comparacion -> . GREATER_THAN
+    (69) operador_comparacion -> . GREATER_THAN_EQUAL
+    (70) operador_comparacion -> . LESS_THAN
+    (71) operador_comparacion -> . LESS_THAN_EQUAL
+    (72) operador_comparacion -> . NOT_EQUAL
+    (73) operador_comparacion -> . SPACESHIP
+
+    LEFT_PAR        shift and go to state 45
+    ASSIGN          shift and go to state 46
+    LEFT_COR        reduce using rule 51 (variable_arreglo -> variable .)
+    $end            reduce using rule 51 (variable_arreglo -> variable .)
+    END             reduce using rule 51 (variable_arreglo -> variable .)
+    ELSE            reduce using rule 51 (variable_arreglo -> variable .)
+    CASE_EQUAL      shift and go to state 48
+    EQUAL           shift and go to state 49
+    GREATER_THAN    shift and go to state 50
+    GREATER_THAN_EQUAL shift and go to state 51
+    LESS_THAN       shift and go to state 52
+    LESS_THAN_EQUAL shift and go to state 53
+    NOT_EQUAL       shift and go to state 54
+    SPACESHIP       shift and go to state 55
+
+    operador_comparacion           shift and go to state 47
+
+state 18
+
+    (17) condiciones_con_conectores -> condiciones . conectores condiciones
+    (58) condiciones -> condiciones . conectores condiciones
+    (62) conectores -> . AND
+    (63) conectores -> . OR
+    (64) conectores -> . AND_RESERVED
+    (65) conectores -> . OR_RESERVED
+
+    AND             shift and go to state 57
+    OR              shift and go to state 58
+    AND_RESERVED    shift and go to state 59
+    OR_RESERVED     shift and go to state 60
+
+    conectores                     shift and go to state 56
+
+state 19
+
+    (39) array -> array_explicito .
+
+    $end            reduce using rule 39 (array -> array_explicito .)
+    LEFT_COR        reduce using rule 39 (array -> array_explicito .)
+    END             reduce using rule 39 (array -> array_explicito .)
+    ELSE            reduce using rule 39 (array -> array_explicito .)
+
+
+state 20
+
+    (40) array -> array_implicito .
+
+    $end            reduce using rule 40 (array -> array_implicito .)
+    LEFT_COR        reduce using rule 40 (array -> array_implicito .)
+    END             reduce using rule 40 (array -> array_implicito .)
+    ELSE            reduce using rule 40 (array -> array_implicito .)
+
+
+state 21
+
+    (41) array -> array_creacion .
+
+    $end            reduce using rule 41 (array -> array_creacion .)
+    LEFT_COR        reduce using rule 41 (array -> array_creacion .)
+    END             reduce using rule 41 (array -> array_creacion .)
+    ELSE            reduce using rule 41 (array -> array_creacion .)
+
+
+state 22
+
+    (42) array -> array_new .
+
+    $end            reduce using rule 42 (array -> array_new .)
+    LEFT_COR        reduce using rule 42 (array -> array_new .)
+    END             reduce using rule 42 (array -> array_new .)
+    ELSE            reduce using rule 42 (array -> array_new .)
+
+
+state 23
+
+    (43) array_explicito -> LEFT_COR . values RIGHT_COR
+    (44) array_explicito -> LEFT_COR . RIGHT_COR
+    (27) values -> . value
+    (28) values -> . value COMMA values
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    RIGHT_COR       shift and go to state 62
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    values                         shift and go to state 61
+    value                          shift and go to state 37
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 24
+
+    (35) numero -> INTEGER .
+
+    CASE_EQUAL      reduce using rule 35 (numero -> INTEGER .)
+    EQUAL           reduce using rule 35 (numero -> INTEGER .)
+    GREATER_THAN    reduce using rule 35 (numero -> INTEGER .)
+    GREATER_THAN_EQUAL reduce using rule 35 (numero -> INTEGER .)
+    LESS_THAN       reduce using rule 35 (numero -> INTEGER .)
+    LESS_THAN_EQUAL reduce using rule 35 (numero -> INTEGER .)
+    NOT_EQUAL       reduce using rule 35 (numero -> INTEGER .)
+    SPACESHIP       reduce using rule 35 (numero -> INTEGER .)
+    COMMA           reduce using rule 35 (numero -> INTEGER .)
+    $end            reduce using rule 35 (numero -> INTEGER .)
+    END             reduce using rule 35 (numero -> INTEGER .)
+    ELSE            reduce using rule 35 (numero -> INTEGER .)
+    RIGHT_COR       reduce using rule 35 (numero -> INTEGER .)
+    RIGHT_PAR       reduce using rule 35 (numero -> INTEGER .)
+    AND             reduce using rule 35 (numero -> INTEGER .)
+    OR              reduce using rule 35 (numero -> INTEGER .)
+    AND_RESERVED    reduce using rule 35 (numero -> INTEGER .)
+    OR_RESERVED     reduce using rule 35 (numero -> INTEGER .)
+    NEWLINE         reduce using rule 35 (numero -> INTEGER .)
+    SPACE           reduce using rule 35 (numero -> INTEGER .)
+
+
+state 25
+
+    (54) if_statement -> IF . condiciones NEWLINE codigo END
+    (55) if_statement -> IF . condiciones NEWLINE codigo else_statement END
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+
+    condiciones                    shift and go to state 63
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+    variable                       shift and go to state 64
+
+state 26
+
+    (29) variable -> LOCAL_VARIABLE .
+
+    LEFT_PAR        reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    ASSIGN          reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    CASE_EQUAL      reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    EQUAL           reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    GREATER_THAN    reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    GREATER_THAN_EQUAL reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    LESS_THAN       reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    LESS_THAN_EQUAL reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    NOT_EQUAL       reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    SPACESHIP       reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    LEFT_COR        reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    $end            reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    COMMA           reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    END             reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    ELSE            reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    RIGHT_COR       reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    RIGHT_PAR       reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    SPACE           reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    AND             reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    OR              reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    AND_RESERVED    reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    OR_RESERVED     reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+    NEWLINE         reduce using rule 29 (variable -> LOCAL_VARIABLE .)
+
+
+state 27
+
+    (30) variable -> INSTANCE_VARIABLE .
+
+    LEFT_PAR        reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    ASSIGN          reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    CASE_EQUAL      reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    EQUAL           reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    GREATER_THAN    reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    GREATER_THAN_EQUAL reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    LESS_THAN       reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    LESS_THAN_EQUAL reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    NOT_EQUAL       reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    SPACESHIP       reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    LEFT_COR        reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    $end            reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    COMMA           reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    END             reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    ELSE            reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    RIGHT_COR       reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    RIGHT_PAR       reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    SPACE           reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    AND             reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    OR              reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    AND_RESERVED    reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    OR_RESERVED     reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+    NEWLINE         reduce using rule 30 (variable -> INSTANCE_VARIABLE .)
+
+
+state 28
+
+    (31) variable -> CLASS_VARIABLE .
+
+    LEFT_PAR        reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    ASSIGN          reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    CASE_EQUAL      reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    EQUAL           reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    GREATER_THAN    reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    GREATER_THAN_EQUAL reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    LESS_THAN       reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    LESS_THAN_EQUAL reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    NOT_EQUAL       reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    SPACESHIP       reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    LEFT_COR        reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    $end            reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    COMMA           reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    END             reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    ELSE            reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    RIGHT_COR       reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    RIGHT_PAR       reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    SPACE           reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    AND             reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    OR              reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    AND_RESERVED    reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    OR_RESERVED     reduce using rule 31 (variable -> CLASS_VARIABLE .)
+    NEWLINE         reduce using rule 31 (variable -> CLASS_VARIABLE .)
+
+
+state 29
+
+    (32) variable -> GLOBAL_VARIABLE .
+
+    LEFT_PAR        reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    ASSIGN          reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    CASE_EQUAL      reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    EQUAL           reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    GREATER_THAN    reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    GREATER_THAN_EQUAL reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    LESS_THAN       reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    LESS_THAN_EQUAL reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    NOT_EQUAL       reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    SPACESHIP       reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    LEFT_COR        reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    $end            reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    COMMA           reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    END             reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    ELSE            reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    RIGHT_COR       reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    RIGHT_PAR       reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    SPACE           reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    AND             reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    OR              reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    AND_RESERVED    reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    OR_RESERVED     reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+    NEWLINE         reduce using rule 32 (variable -> GLOBAL_VARIABLE .)
+
+
+state 30
+
+    (33) variable -> CONSTANT .
+
+    LEFT_PAR        reduce using rule 33 (variable -> CONSTANT .)
+    ASSIGN          reduce using rule 33 (variable -> CONSTANT .)
+    CASE_EQUAL      reduce using rule 33 (variable -> CONSTANT .)
+    EQUAL           reduce using rule 33 (variable -> CONSTANT .)
+    GREATER_THAN    reduce using rule 33 (variable -> CONSTANT .)
+    GREATER_THAN_EQUAL reduce using rule 33 (variable -> CONSTANT .)
+    LESS_THAN       reduce using rule 33 (variable -> CONSTANT .)
+    LESS_THAN_EQUAL reduce using rule 33 (variable -> CONSTANT .)
+    NOT_EQUAL       reduce using rule 33 (variable -> CONSTANT .)
+    SPACESHIP       reduce using rule 33 (variable -> CONSTANT .)
+    LEFT_COR        reduce using rule 33 (variable -> CONSTANT .)
+    $end            reduce using rule 33 (variable -> CONSTANT .)
+    COMMA           reduce using rule 33 (variable -> CONSTANT .)
+    END             reduce using rule 33 (variable -> CONSTANT .)
+    ELSE            reduce using rule 33 (variable -> CONSTANT .)
+    RIGHT_COR       reduce using rule 33 (variable -> CONSTANT .)
+    RIGHT_PAR       reduce using rule 33 (variable -> CONSTANT .)
+    SPACE           reduce using rule 33 (variable -> CONSTANT .)
+    AND             reduce using rule 33 (variable -> CONSTANT .)
+    OR              reduce using rule 33 (variable -> CONSTANT .)
+    AND_RESERVED    reduce using rule 33 (variable -> CONSTANT .)
+    OR_RESERVED     reduce using rule 33 (variable -> CONSTANT .)
+    NEWLINE         reduce using rule 33 (variable -> CONSTANT .)
+
+
+state 31
+
+    (57) condiciones -> condicion .
+
+    AND             reduce using rule 57 (condiciones -> condicion .)
+    OR              reduce using rule 57 (condiciones -> condicion .)
+    AND_RESERVED    reduce using rule 57 (condiciones -> condicion .)
+    OR_RESERVED     reduce using rule 57 (condiciones -> condicion .)
+    NEWLINE         reduce using rule 57 (condiciones -> condicion .)
+    $end            reduce using rule 57 (condiciones -> condicion .)
+    END             reduce using rule 57 (condiciones -> condicion .)
+    ELSE            reduce using rule 57 (condiciones -> condicion .)
+
+
+state 32
+
+    (45) array_implicito -> PERCENT_W . LEFT_COR values_space RIGHT_COR
+    (46) array_implicito -> PERCENT_W . LEFT_COR RIGHT_COR
+
+    LEFT_COR        shift and go to state 65
+
+
+state 33
+
+    (47) array_creacion -> ARRAY . LEFT_PAR array_explicito RIGHT_PAR
+    (48) array_new -> ARRAY . DOT NEW
+    (49) array_new -> ARRAY . DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> ARRAY . DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+
+    LEFT_PAR        shift and go to state 66
+    DOT             shift and go to state 67
+
+
+state 34
+
+    (59) condicion -> numero . operador_comparacion numero
+    (61) condicion -> numero . operador_comparacion variable
+    (66) operador_comparacion -> . CASE_EQUAL
+    (67) operador_comparacion -> . EQUAL
+    (68) operador_comparacion -> . GREATER_THAN
+    (69) operador_comparacion -> . GREATER_THAN_EQUAL
+    (70) operador_comparacion -> . LESS_THAN
+    (71) operador_comparacion -> . LESS_THAN_EQUAL
+    (72) operador_comparacion -> . NOT_EQUAL
+    (73) operador_comparacion -> . SPACESHIP
+
+    CASE_EQUAL      shift and go to state 48
+    EQUAL           shift and go to state 49
+    GREATER_THAN    shift and go to state 50
+    GREATER_THAN_EQUAL shift and go to state 51
+    LESS_THAN       shift and go to state 52
+    LESS_THAN_EQUAL shift and go to state 53
+    NOT_EQUAL       shift and go to state 54
+    SPACESHIP       shift and go to state 55
+
+    operador_comparacion           shift and go to state 68
+
+state 35
+
+    (34) numero -> FLOAT .
+
+    CASE_EQUAL      reduce using rule 34 (numero -> FLOAT .)
+    EQUAL           reduce using rule 34 (numero -> FLOAT .)
+    GREATER_THAN    reduce using rule 34 (numero -> FLOAT .)
+    GREATER_THAN_EQUAL reduce using rule 34 (numero -> FLOAT .)
+    LESS_THAN       reduce using rule 34 (numero -> FLOAT .)
+    LESS_THAN_EQUAL reduce using rule 34 (numero -> FLOAT .)
+    NOT_EQUAL       reduce using rule 34 (numero -> FLOAT .)
+    SPACESHIP       reduce using rule 34 (numero -> FLOAT .)
+    COMMA           reduce using rule 34 (numero -> FLOAT .)
+    $end            reduce using rule 34 (numero -> FLOAT .)
+    END             reduce using rule 34 (numero -> FLOAT .)
+    ELSE            reduce using rule 34 (numero -> FLOAT .)
+    RIGHT_COR       reduce using rule 34 (numero -> FLOAT .)
+    RIGHT_PAR       reduce using rule 34 (numero -> FLOAT .)
+    AND             reduce using rule 34 (numero -> FLOAT .)
+    OR              reduce using rule 34 (numero -> FLOAT .)
+    AND_RESERVED    reduce using rule 34 (numero -> FLOAT .)
+    OR_RESERVED     reduce using rule 34 (numero -> FLOAT .)
+    NEWLINE         reduce using rule 34 (numero -> FLOAT .)
+    SPACE           reduce using rule 34 (numero -> FLOAT .)
+
+
+state 36
+
+    (38) puts -> PUTS values .
+
+    $end            reduce using rule 38 (puts -> PUTS values .)
+    END             reduce using rule 38 (puts -> PUTS values .)
+    ELSE            reduce using rule 38 (puts -> PUTS values .)
+
+
+state 37
+
+    (27) values -> value .
+    (28) values -> value . COMMA values
+
+    $end            reduce using rule 27 (values -> value .)
+    END             reduce using rule 27 (values -> value .)
+    ELSE            reduce using rule 27 (values -> value .)
+    RIGHT_COR       reduce using rule 27 (values -> value .)
+    RIGHT_PAR       reduce using rule 27 (values -> value .)
+    COMMA           shift and go to state 69
+
+
+state 38
+
+    (20) value -> variable .
+
+    COMMA           reduce using rule 20 (value -> variable .)
+    $end            reduce using rule 20 (value -> variable .)
+    END             reduce using rule 20 (value -> variable .)
+    ELSE            reduce using rule 20 (value -> variable .)
+    RIGHT_COR       reduce using rule 20 (value -> variable .)
+    RIGHT_PAR       reduce using rule 20 (value -> variable .)
+    SPACE           reduce using rule 20 (value -> variable .)
+
+
+state 39
+
+    (21) value -> numero .
+
+    COMMA           reduce using rule 21 (value -> numero .)
+    $end            reduce using rule 21 (value -> numero .)
+    END             reduce using rule 21 (value -> numero .)
+    ELSE            reduce using rule 21 (value -> numero .)
+    RIGHT_COR       reduce using rule 21 (value -> numero .)
+    RIGHT_PAR       reduce using rule 21 (value -> numero .)
+    SPACE           reduce using rule 21 (value -> numero .)
+
+
+state 40
+
+    (22) value -> STRING .
+
+    COMMA           reduce using rule 22 (value -> STRING .)
+    $end            reduce using rule 22 (value -> STRING .)
+    END             reduce using rule 22 (value -> STRING .)
+    ELSE            reduce using rule 22 (value -> STRING .)
+    RIGHT_COR       reduce using rule 22 (value -> STRING .)
+    RIGHT_PAR       reduce using rule 22 (value -> STRING .)
+    SPACE           reduce using rule 22 (value -> STRING .)
+
+
+state 41
+
+    (23) value -> NIL .
+
+    COMMA           reduce using rule 23 (value -> NIL .)
+    $end            reduce using rule 23 (value -> NIL .)
+    END             reduce using rule 23 (value -> NIL .)
+    ELSE            reduce using rule 23 (value -> NIL .)
+    RIGHT_COR       reduce using rule 23 (value -> NIL .)
+    RIGHT_PAR       reduce using rule 23 (value -> NIL .)
+    SPACE           reduce using rule 23 (value -> NIL .)
+
+
+state 42
+
+    (24) value -> SYMBOL .
+
+    COMMA           reduce using rule 24 (value -> SYMBOL .)
+    $end            reduce using rule 24 (value -> SYMBOL .)
+    END             reduce using rule 24 (value -> SYMBOL .)
+    ELSE            reduce using rule 24 (value -> SYMBOL .)
+    RIGHT_COR       reduce using rule 24 (value -> SYMBOL .)
+    RIGHT_PAR       reduce using rule 24 (value -> SYMBOL .)
+    SPACE           reduce using rule 24 (value -> SYMBOL .)
+
+
+state 43
+
+    (36) gets -> GETS DOT . CHOMP DOT TO_F
+    (37) gets -> GETS DOT . CHOMP
+
+    CHOMP           shift and go to state 70
+
+
+state 44
+
+    (53) acceder_arreglo -> variable_arreglo LEFT_COR . INTEGER RIGHT_COR
+
+    INTEGER         shift and go to state 71
+
+
+state 45
+
+    (18) llamada_metodo -> variable LEFT_PAR . values RIGHT_PAR
+    (19) llamada_metodo -> variable LEFT_PAR . RIGHT_PAR
+    (27) values -> . value
+    (28) values -> . value COMMA values
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    RIGHT_PAR       shift and go to state 73
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    variable                       shift and go to state 38
+    values                         shift and go to state 72
+    value                          shift and go to state 37
+    numero                         shift and go to state 39
+
+state 46
+
+    (14) declaracion_variable -> variable ASSIGN . value
+    (15) almacenar_resultado_condicional -> variable ASSIGN . condiciones
+    (52) variable_arreglo -> variable ASSIGN . array
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (39) array -> . array_explicito
+    (40) array -> . array_implicito
+    (41) array -> . array_creacion
+    (42) array -> . array_new
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (43) array_explicito -> . LEFT_COR values RIGHT_COR
+    (44) array_explicito -> . LEFT_COR RIGHT_COR
+    (45) array_implicito -> . PERCENT_W LEFT_COR values_space RIGHT_COR
+    (46) array_implicito -> . PERCENT_W LEFT_COR RIGHT_COR
+    (47) array_creacion -> . ARRAY LEFT_PAR array_explicito RIGHT_PAR
+    (48) array_new -> . ARRAY DOT NEW
+    (49) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+    LEFT_COR        shift and go to state 23
+    PERCENT_W       shift and go to state 32
+    ARRAY           shift and go to state 33
+
+    variable                       shift and go to state 74
+    value                          shift and go to state 75
+    condiciones                    shift and go to state 76
+    array                          shift and go to state 77
+    numero                         shift and go to state 78
+    condicion                      shift and go to state 31
+    array_explicito                shift and go to state 19
+    array_implicito                shift and go to state 20
+    array_creacion                 shift and go to state 21
+    array_new                      shift and go to state 22
+
+state 47
+
+    (60) condicion -> variable operador_comparacion . numero
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    numero                         shift and go to state 79
+
+state 48
+
+    (66) operador_comparacion -> CASE_EQUAL .
+
+    FLOAT           reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    INTEGER         reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    LOCAL_VARIABLE  reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    INSTANCE_VARIABLE reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    CLASS_VARIABLE  reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    GLOBAL_VARIABLE reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+    CONSTANT        reduce using rule 66 (operador_comparacion -> CASE_EQUAL .)
+
+
+state 49
+
+    (67) operador_comparacion -> EQUAL .
+
+    FLOAT           reduce using rule 67 (operador_comparacion -> EQUAL .)
+    INTEGER         reduce using rule 67 (operador_comparacion -> EQUAL .)
+    LOCAL_VARIABLE  reduce using rule 67 (operador_comparacion -> EQUAL .)
+    INSTANCE_VARIABLE reduce using rule 67 (operador_comparacion -> EQUAL .)
+    CLASS_VARIABLE  reduce using rule 67 (operador_comparacion -> EQUAL .)
+    GLOBAL_VARIABLE reduce using rule 67 (operador_comparacion -> EQUAL .)
+    CONSTANT        reduce using rule 67 (operador_comparacion -> EQUAL .)
+
+
+state 50
+
+    (68) operador_comparacion -> GREATER_THAN .
+
+    FLOAT           reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    INTEGER         reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    LOCAL_VARIABLE  reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    INSTANCE_VARIABLE reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    CLASS_VARIABLE  reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    GLOBAL_VARIABLE reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+    CONSTANT        reduce using rule 68 (operador_comparacion -> GREATER_THAN .)
+
+
+state 51
+
+    (69) operador_comparacion -> GREATER_THAN_EQUAL .
+
+    FLOAT           reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    INTEGER         reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    LOCAL_VARIABLE  reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    INSTANCE_VARIABLE reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    CLASS_VARIABLE  reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    GLOBAL_VARIABLE reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+    CONSTANT        reduce using rule 69 (operador_comparacion -> GREATER_THAN_EQUAL .)
+
+
+state 52
+
+    (70) operador_comparacion -> LESS_THAN .
+
+    FLOAT           reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    INTEGER         reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    LOCAL_VARIABLE  reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    INSTANCE_VARIABLE reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    CLASS_VARIABLE  reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    GLOBAL_VARIABLE reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+    CONSTANT        reduce using rule 70 (operador_comparacion -> LESS_THAN .)
+
+
+state 53
+
+    (71) operador_comparacion -> LESS_THAN_EQUAL .
+
+    FLOAT           reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    INTEGER         reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    LOCAL_VARIABLE  reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    INSTANCE_VARIABLE reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    CLASS_VARIABLE  reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    GLOBAL_VARIABLE reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+    CONSTANT        reduce using rule 71 (operador_comparacion -> LESS_THAN_EQUAL .)
+
+
+state 54
+
+    (72) operador_comparacion -> NOT_EQUAL .
+
+    FLOAT           reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    INTEGER         reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    LOCAL_VARIABLE  reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    INSTANCE_VARIABLE reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    CLASS_VARIABLE  reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    GLOBAL_VARIABLE reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+    CONSTANT        reduce using rule 72 (operador_comparacion -> NOT_EQUAL .)
+
+
+state 55
+
+    (73) operador_comparacion -> SPACESHIP .
+
+    FLOAT           reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    INTEGER         reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    LOCAL_VARIABLE  reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    INSTANCE_VARIABLE reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    CLASS_VARIABLE  reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    GLOBAL_VARIABLE reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+    CONSTANT        reduce using rule 73 (operador_comparacion -> SPACESHIP .)
+
+
+state 56
+
+    (17) condiciones_con_conectores -> condiciones conectores . condiciones
+    (58) condiciones -> condiciones conectores . condiciones
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+
+    condiciones                    shift and go to state 80
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+    variable                       shift and go to state 64
+
+state 57
+
+    (62) conectores -> AND .
+
+    FLOAT           reduce using rule 62 (conectores -> AND .)
+    INTEGER         reduce using rule 62 (conectores -> AND .)
+    LOCAL_VARIABLE  reduce using rule 62 (conectores -> AND .)
+    INSTANCE_VARIABLE reduce using rule 62 (conectores -> AND .)
+    CLASS_VARIABLE  reduce using rule 62 (conectores -> AND .)
+    GLOBAL_VARIABLE reduce using rule 62 (conectores -> AND .)
+    CONSTANT        reduce using rule 62 (conectores -> AND .)
+
+
+state 58
+
+    (63) conectores -> OR .
+
+    FLOAT           reduce using rule 63 (conectores -> OR .)
+    INTEGER         reduce using rule 63 (conectores -> OR .)
+    LOCAL_VARIABLE  reduce using rule 63 (conectores -> OR .)
+    INSTANCE_VARIABLE reduce using rule 63 (conectores -> OR .)
+    CLASS_VARIABLE  reduce using rule 63 (conectores -> OR .)
+    GLOBAL_VARIABLE reduce using rule 63 (conectores -> OR .)
+    CONSTANT        reduce using rule 63 (conectores -> OR .)
+
+
+state 59
+
+    (64) conectores -> AND_RESERVED .
+
+    FLOAT           reduce using rule 64 (conectores -> AND_RESERVED .)
+    INTEGER         reduce using rule 64 (conectores -> AND_RESERVED .)
+    LOCAL_VARIABLE  reduce using rule 64 (conectores -> AND_RESERVED .)
+    INSTANCE_VARIABLE reduce using rule 64 (conectores -> AND_RESERVED .)
+    CLASS_VARIABLE  reduce using rule 64 (conectores -> AND_RESERVED .)
+    GLOBAL_VARIABLE reduce using rule 64 (conectores -> AND_RESERVED .)
+    CONSTANT        reduce using rule 64 (conectores -> AND_RESERVED .)
+
+
+state 60
+
+    (65) conectores -> OR_RESERVED .
+
+    FLOAT           reduce using rule 65 (conectores -> OR_RESERVED .)
+    INTEGER         reduce using rule 65 (conectores -> OR_RESERVED .)
+    LOCAL_VARIABLE  reduce using rule 65 (conectores -> OR_RESERVED .)
+    INSTANCE_VARIABLE reduce using rule 65 (conectores -> OR_RESERVED .)
+    CLASS_VARIABLE  reduce using rule 65 (conectores -> OR_RESERVED .)
+    GLOBAL_VARIABLE reduce using rule 65 (conectores -> OR_RESERVED .)
+    CONSTANT        reduce using rule 65 (conectores -> OR_RESERVED .)
+
+
+state 61
+
+    (43) array_explicito -> LEFT_COR values . RIGHT_COR
+
+    RIGHT_COR       shift and go to state 81
+
+
+state 62
+
+    (44) array_explicito -> LEFT_COR RIGHT_COR .
+
+    $end            reduce using rule 44 (array_explicito -> LEFT_COR RIGHT_COR .)
+    LEFT_COR        reduce using rule 44 (array_explicito -> LEFT_COR RIGHT_COR .)
+    END             reduce using rule 44 (array_explicito -> LEFT_COR RIGHT_COR .)
+    ELSE            reduce using rule 44 (array_explicito -> LEFT_COR RIGHT_COR .)
+    RIGHT_PAR       reduce using rule 44 (array_explicito -> LEFT_COR RIGHT_COR .)
+
+
+state 63
+
+    (54) if_statement -> IF condiciones . NEWLINE codigo END
+    (55) if_statement -> IF condiciones . NEWLINE codigo else_statement END
+    (58) condiciones -> condiciones . conectores condiciones
+    (62) conectores -> . AND
+    (63) conectores -> . OR
+    (64) conectores -> . AND_RESERVED
+    (65) conectores -> . OR_RESERVED
+
+    NEWLINE         shift and go to state 82
+    AND             shift and go to state 57
+    OR              shift and go to state 58
+    AND_RESERVED    shift and go to state 59
+    OR_RESERVED     shift and go to state 60
+
+    conectores                     shift and go to state 83
+
+state 64
+
+    (60) condicion -> variable . operador_comparacion numero
+    (66) operador_comparacion -> . CASE_EQUAL
+    (67) operador_comparacion -> . EQUAL
+    (68) operador_comparacion -> . GREATER_THAN
+    (69) operador_comparacion -> . GREATER_THAN_EQUAL
+    (70) operador_comparacion -> . LESS_THAN
+    (71) operador_comparacion -> . LESS_THAN_EQUAL
+    (72) operador_comparacion -> . NOT_EQUAL
+    (73) operador_comparacion -> . SPACESHIP
+
+    CASE_EQUAL      shift and go to state 48
+    EQUAL           shift and go to state 49
+    GREATER_THAN    shift and go to state 50
+    GREATER_THAN_EQUAL shift and go to state 51
+    LESS_THAN       shift and go to state 52
+    LESS_THAN_EQUAL shift and go to state 53
+    NOT_EQUAL       shift and go to state 54
+    SPACESHIP       shift and go to state 55
+
+    operador_comparacion           shift and go to state 47
+
+state 65
+
+    (45) array_implicito -> PERCENT_W LEFT_COR . values_space RIGHT_COR
+    (46) array_implicito -> PERCENT_W LEFT_COR . RIGHT_COR
+    (25) values_space -> . value
+    (26) values_space -> . value SPACE values_space
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    RIGHT_COR       shift and go to state 85
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    values_space                   shift and go to state 84
+    value                          shift and go to state 86
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 66
+
+    (47) array_creacion -> ARRAY LEFT_PAR . array_explicito RIGHT_PAR
+    (43) array_explicito -> . LEFT_COR values RIGHT_COR
+    (44) array_explicito -> . LEFT_COR RIGHT_COR
+
+    LEFT_COR        shift and go to state 23
+
+    array_explicito                shift and go to state 87
+
+state 67
+
+    (48) array_new -> ARRAY DOT . NEW
+    (49) array_new -> ARRAY DOT . NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> ARRAY DOT . NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+
+    NEW             shift and go to state 88
+
+
+state 68
+
+    (59) condicion -> numero operador_comparacion . numero
+    (61) condicion -> numero operador_comparacion . variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+
+    numero                         shift and go to state 89
+    variable                       shift and go to state 90
+
+state 69
+
+    (28) values -> value COMMA . values
+    (27) values -> . value
+    (28) values -> . value COMMA values
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    value                          shift and go to state 37
+    values                         shift and go to state 91
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 70
+
+    (36) gets -> GETS DOT CHOMP . DOT TO_F
+    (37) gets -> GETS DOT CHOMP .
+
+    DOT             shift and go to state 92
+    $end            reduce using rule 37 (gets -> GETS DOT CHOMP .)
+    END             reduce using rule 37 (gets -> GETS DOT CHOMP .)
+    ELSE            reduce using rule 37 (gets -> GETS DOT CHOMP .)
+
+
+state 71
+
+    (53) acceder_arreglo -> variable_arreglo LEFT_COR INTEGER . RIGHT_COR
+
+    RIGHT_COR       shift and go to state 93
+
+
+state 72
+
+    (18) llamada_metodo -> variable LEFT_PAR values . RIGHT_PAR
+
+    RIGHT_PAR       shift and go to state 94
+
+
+state 73
+
+    (19) llamada_metodo -> variable LEFT_PAR RIGHT_PAR .
+
+    $end            reduce using rule 19 (llamada_metodo -> variable LEFT_PAR RIGHT_PAR .)
+    END             reduce using rule 19 (llamada_metodo -> variable LEFT_PAR RIGHT_PAR .)
+    ELSE            reduce using rule 19 (llamada_metodo -> variable LEFT_PAR RIGHT_PAR .)
+
+
+state 74
+
+    (20) value -> variable .
+    (60) condicion -> variable . operador_comparacion numero
+    (66) operador_comparacion -> . CASE_EQUAL
+    (67) operador_comparacion -> . EQUAL
+    (68) operador_comparacion -> . GREATER_THAN
+    (69) operador_comparacion -> . GREATER_THAN_EQUAL
+    (70) operador_comparacion -> . LESS_THAN
+    (71) operador_comparacion -> . LESS_THAN_EQUAL
+    (72) operador_comparacion -> . NOT_EQUAL
+    (73) operador_comparacion -> . SPACESHIP
+
+    $end            reduce using rule 20 (value -> variable .)
+    END             reduce using rule 20 (value -> variable .)
+    ELSE            reduce using rule 20 (value -> variable .)
+    CASE_EQUAL      shift and go to state 48
+    EQUAL           shift and go to state 49
+    GREATER_THAN    shift and go to state 50
+    GREATER_THAN_EQUAL shift and go to state 51
+    LESS_THAN       shift and go to state 52
+    LESS_THAN_EQUAL shift and go to state 53
+    NOT_EQUAL       shift and go to state 54
+    SPACESHIP       shift and go to state 55
+
+    operador_comparacion           shift and go to state 47
+
+state 75
+
+    (14) declaracion_variable -> variable ASSIGN value .
+
+    $end            reduce using rule 14 (declaracion_variable -> variable ASSIGN value .)
+    END             reduce using rule 14 (declaracion_variable -> variable ASSIGN value .)
+    ELSE            reduce using rule 14 (declaracion_variable -> variable ASSIGN value .)
+
+
+state 76
+
+    (15) almacenar_resultado_condicional -> variable ASSIGN condiciones .
+    (58) condiciones -> condiciones . conectores condiciones
+    (62) conectores -> . AND
+    (63) conectores -> . OR
+    (64) conectores -> . AND_RESERVED
+    (65) conectores -> . OR_RESERVED
+
+    $end            reduce using rule 15 (almacenar_resultado_condicional -> variable ASSIGN condiciones .)
+    END             reduce using rule 15 (almacenar_resultado_condicional -> variable ASSIGN condiciones .)
+    ELSE            reduce using rule 15 (almacenar_resultado_condicional -> variable ASSIGN condiciones .)
+    AND             shift and go to state 57
+    OR              shift and go to state 58
+    AND_RESERVED    shift and go to state 59
+    OR_RESERVED     shift and go to state 60
+
+    conectores                     shift and go to state 83
+
+state 77
+
+    (52) variable_arreglo -> variable ASSIGN array .
+
+    LEFT_COR        reduce using rule 52 (variable_arreglo -> variable ASSIGN array .)
+    $end            reduce using rule 52 (variable_arreglo -> variable ASSIGN array .)
+    END             reduce using rule 52 (variable_arreglo -> variable ASSIGN array .)
+    ELSE            reduce using rule 52 (variable_arreglo -> variable ASSIGN array .)
+
+
+state 78
+
+    (21) value -> numero .
+    (59) condicion -> numero . operador_comparacion numero
+    (61) condicion -> numero . operador_comparacion variable
+    (66) operador_comparacion -> . CASE_EQUAL
+    (67) operador_comparacion -> . EQUAL
+    (68) operador_comparacion -> . GREATER_THAN
+    (69) operador_comparacion -> . GREATER_THAN_EQUAL
+    (70) operador_comparacion -> . LESS_THAN
+    (71) operador_comparacion -> . LESS_THAN_EQUAL
+    (72) operador_comparacion -> . NOT_EQUAL
+    (73) operador_comparacion -> . SPACESHIP
+
+    $end            reduce using rule 21 (value -> numero .)
+    END             reduce using rule 21 (value -> numero .)
+    ELSE            reduce using rule 21 (value -> numero .)
+    CASE_EQUAL      shift and go to state 48
+    EQUAL           shift and go to state 49
+    GREATER_THAN    shift and go to state 50
+    GREATER_THAN_EQUAL shift and go to state 51
+    LESS_THAN       shift and go to state 52
+    LESS_THAN_EQUAL shift and go to state 53
+    NOT_EQUAL       shift and go to state 54
+    SPACESHIP       shift and go to state 55
+
+    operador_comparacion           shift and go to state 68
+
+state 79
+
+    (60) condicion -> variable operador_comparacion numero .
+
+    AND             reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    OR              reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    AND_RESERVED    reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    OR_RESERVED     reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    NEWLINE         reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    $end            reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    END             reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+    ELSE            reduce using rule 60 (condicion -> variable operador_comparacion numero .)
+
+
+state 80
+
+    (17) condiciones_con_conectores -> condiciones conectores condiciones .
+    (58) condiciones -> condiciones conectores condiciones .
+    (58) condiciones -> condiciones . conectores condiciones
+    (62) conectores -> . AND
+    (63) conectores -> . OR
+    (64) conectores -> . AND_RESERVED
+    (65) conectores -> . OR_RESERVED
+
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for AND_RESERVED resolved as shift
+  ! shift/reduce conflict for OR_RESERVED resolved as shift
+    $end            reduce using rule 17 (condiciones_con_conectores -> condiciones conectores condiciones .)
+    END             reduce using rule 17 (condiciones_con_conectores -> condiciones conectores condiciones .)
+    ELSE            reduce using rule 17 (condiciones_con_conectores -> condiciones conectores condiciones .)
+    AND             shift and go to state 57
+    OR              shift and go to state 58
+    AND_RESERVED    shift and go to state 59
+    OR_RESERVED     shift and go to state 60
+
+  ! AND             [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! OR              [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! AND_RESERVED    [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! OR_RESERVED     [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+
+    conectores                     shift and go to state 83
+
+state 81
+
+    (43) array_explicito -> LEFT_COR values RIGHT_COR .
+
+    $end            reduce using rule 43 (array_explicito -> LEFT_COR values RIGHT_COR .)
+    LEFT_COR        reduce using rule 43 (array_explicito -> LEFT_COR values RIGHT_COR .)
+    END             reduce using rule 43 (array_explicito -> LEFT_COR values RIGHT_COR .)
+    ELSE            reduce using rule 43 (array_explicito -> LEFT_COR values RIGHT_COR .)
+    RIGHT_PAR       reduce using rule 43 (array_explicito -> LEFT_COR values RIGHT_COR .)
+
+
+state 82
+
+    (54) if_statement -> IF condiciones NEWLINE . codigo END
+    (55) if_statement -> IF condiciones NEWLINE . codigo else_statement END
+    (1) codigo -> . puts
+    (2) codigo -> . gets
+    (3) codigo -> . estructura_datos
+    (4) codigo -> . estructura_control
+    (5) codigo -> . llamada_metodo
+    (6) codigo -> . declaracion_variable
+    (7) codigo -> . almacenar_resultado_condicional
+    (8) codigo -> . declaracion_estructura_datos
+    (9) codigo -> . condiciones_con_conectores
+    (38) puts -> . PUTS values
+    (36) gets -> . GETS DOT CHOMP DOT TO_F
+    (37) gets -> . GETS DOT CHOMP
+    (10) estructura_datos -> . array
+    (11) estructura_datos -> . variable_arreglo
+    (12) estructura_datos -> . acceder_arreglo
+    (13) estructura_control -> . if_statement
+    (18) llamada_metodo -> . variable LEFT_PAR values RIGHT_PAR
+    (19) llamada_metodo -> . variable LEFT_PAR RIGHT_PAR
+    (14) declaracion_variable -> . variable ASSIGN value
+    (15) almacenar_resultado_condicional -> . variable ASSIGN condiciones
+    (16) declaracion_estructura_datos -> . variable_arreglo
+    (17) condiciones_con_conectores -> . condiciones conectores condiciones
+    (39) array -> . array_explicito
+    (40) array -> . array_implicito
+    (41) array -> . array_creacion
+    (42) array -> . array_new
+    (51) variable_arreglo -> . variable
+    (52) variable_arreglo -> . variable ASSIGN array
+    (53) acceder_arreglo -> . variable_arreglo LEFT_COR INTEGER RIGHT_COR
+    (54) if_statement -> . IF condiciones NEWLINE codigo END
+    (55) if_statement -> . IF condiciones NEWLINE codigo else_statement END
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (43) array_explicito -> . LEFT_COR values RIGHT_COR
+    (44) array_explicito -> . LEFT_COR RIGHT_COR
+    (45) array_implicito -> . PERCENT_W LEFT_COR values_space RIGHT_COR
+    (46) array_implicito -> . PERCENT_W LEFT_COR RIGHT_COR
+    (47) array_creacion -> . ARRAY LEFT_PAR array_explicito RIGHT_PAR
+    (48) array_new -> . ARRAY DOT NEW
+    (49) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    PUTS            shift and go to state 11
+    GETS            shift and go to state 12
+    IF              shift and go to state 25
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    LEFT_COR        shift and go to state 23
+    PERCENT_W       shift and go to state 32
+    ARRAY           shift and go to state 33
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    condiciones                    shift and go to state 18
+    codigo                         shift and go to state 95
+    puts                           shift and go to state 2
+    gets                           shift and go to state 3
+    estructura_datos               shift and go to state 4
+    estructura_control             shift and go to state 5
+    llamada_metodo                 shift and go to state 6
+    declaracion_variable           shift and go to state 7
+    almacenar_resultado_condicional shift and go to state 8
+    declaracion_estructura_datos   shift and go to state 9
+    condiciones_con_conectores     shift and go to state 10
+    array                          shift and go to state 13
+    variable_arreglo               shift and go to state 14
+    acceder_arreglo                shift and go to state 15
+    if_statement                   shift and go to state 16
+    variable                       shift and go to state 17
+    array_explicito                shift and go to state 19
+    array_implicito                shift and go to state 20
+    array_creacion                 shift and go to state 21
+    array_new                      shift and go to state 22
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+
+state 83
+
+    (58) condiciones -> condiciones conectores . condiciones
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+
+    condiciones                    shift and go to state 96
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+    variable                       shift and go to state 64
+
+state 84
+
+    (45) array_implicito -> PERCENT_W LEFT_COR values_space . RIGHT_COR
+
+    RIGHT_COR       shift and go to state 97
+
+
+state 85
+
+    (46) array_implicito -> PERCENT_W LEFT_COR RIGHT_COR .
+
+    $end            reduce using rule 46 (array_implicito -> PERCENT_W LEFT_COR RIGHT_COR .)
+    LEFT_COR        reduce using rule 46 (array_implicito -> PERCENT_W LEFT_COR RIGHT_COR .)
+    END             reduce using rule 46 (array_implicito -> PERCENT_W LEFT_COR RIGHT_COR .)
+    ELSE            reduce using rule 46 (array_implicito -> PERCENT_W LEFT_COR RIGHT_COR .)
+
+
+state 86
+
+    (25) values_space -> value .
+    (26) values_space -> value . SPACE values_space
+
+    RIGHT_COR       reduce using rule 25 (values_space -> value .)
+    SPACE           shift and go to state 98
+
+
+state 87
+
+    (47) array_creacion -> ARRAY LEFT_PAR array_explicito . RIGHT_PAR
+
+    RIGHT_PAR       shift and go to state 99
+
+
+state 88
+
+    (48) array_new -> ARRAY DOT NEW .
+    (49) array_new -> ARRAY DOT NEW . LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> ARRAY DOT NEW . LEFT_PAR INTEGER COMMA values RIGHT_PAR
+
+    $end            reduce using rule 48 (array_new -> ARRAY DOT NEW .)
+    LEFT_COR        reduce using rule 48 (array_new -> ARRAY DOT NEW .)
+    END             reduce using rule 48 (array_new -> ARRAY DOT NEW .)
+    ELSE            reduce using rule 48 (array_new -> ARRAY DOT NEW .)
+    LEFT_PAR        shift and go to state 100
+
+
+state 89
+
+    (59) condicion -> numero operador_comparacion numero .
+
+    AND             reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    OR              reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    AND_RESERVED    reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    OR_RESERVED     reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    NEWLINE         reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    $end            reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    END             reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+    ELSE            reduce using rule 59 (condicion -> numero operador_comparacion numero .)
+
+
+state 90
+
+    (61) condicion -> numero operador_comparacion variable .
+
+    AND             reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    OR              reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    AND_RESERVED    reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    OR_RESERVED     reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    NEWLINE         reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    $end            reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    END             reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+    ELSE            reduce using rule 61 (condicion -> numero operador_comparacion variable .)
+
+
+state 91
+
+    (28) values -> value COMMA values .
+
+    $end            reduce using rule 28 (values -> value COMMA values .)
+    END             reduce using rule 28 (values -> value COMMA values .)
+    ELSE            reduce using rule 28 (values -> value COMMA values .)
+    RIGHT_COR       reduce using rule 28 (values -> value COMMA values .)
+    RIGHT_PAR       reduce using rule 28 (values -> value COMMA values .)
+
+
+state 92
+
+    (36) gets -> GETS DOT CHOMP DOT . TO_F
+
+    TO_F            shift and go to state 101
+
+
+state 93
+
+    (53) acceder_arreglo -> variable_arreglo LEFT_COR INTEGER RIGHT_COR .
+
+    $end            reduce using rule 53 (acceder_arreglo -> variable_arreglo LEFT_COR INTEGER RIGHT_COR .)
+    END             reduce using rule 53 (acceder_arreglo -> variable_arreglo LEFT_COR INTEGER RIGHT_COR .)
+    ELSE            reduce using rule 53 (acceder_arreglo -> variable_arreglo LEFT_COR INTEGER RIGHT_COR .)
+
+
+state 94
+
+    (18) llamada_metodo -> variable LEFT_PAR values RIGHT_PAR .
+
+    $end            reduce using rule 18 (llamada_metodo -> variable LEFT_PAR values RIGHT_PAR .)
+    END             reduce using rule 18 (llamada_metodo -> variable LEFT_PAR values RIGHT_PAR .)
+    ELSE            reduce using rule 18 (llamada_metodo -> variable LEFT_PAR values RIGHT_PAR .)
+
+
+state 95
+
+    (54) if_statement -> IF condiciones NEWLINE codigo . END
+    (55) if_statement -> IF condiciones NEWLINE codigo . else_statement END
+    (56) else_statement -> . ELSE NEWLINE codigo
+
+    END             shift and go to state 102
+    ELSE            shift and go to state 104
+
+    else_statement                 shift and go to state 103
+
+state 96
+
+    (58) condiciones -> condiciones conectores condiciones .
+    (58) condiciones -> condiciones . conectores condiciones
+    (62) conectores -> . AND
+    (63) conectores -> . OR
+    (64) conectores -> . AND_RESERVED
+    (65) conectores -> . OR_RESERVED
+
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for AND_RESERVED resolved as shift
+  ! shift/reduce conflict for OR_RESERVED resolved as shift
+    NEWLINE         reduce using rule 58 (condiciones -> condiciones conectores condiciones .)
+    $end            reduce using rule 58 (condiciones -> condiciones conectores condiciones .)
+    END             reduce using rule 58 (condiciones -> condiciones conectores condiciones .)
+    ELSE            reduce using rule 58 (condiciones -> condiciones conectores condiciones .)
+    AND             shift and go to state 57
+    OR              shift and go to state 58
+    AND_RESERVED    shift and go to state 59
+    OR_RESERVED     shift and go to state 60
+
+  ! AND             [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! OR              [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! AND_RESERVED    [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+  ! OR_RESERVED     [ reduce using rule 58 (condiciones -> condiciones conectores condiciones .) ]
+
+    conectores                     shift and go to state 83
+
+state 97
+
+    (45) array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR .
+
+    $end            reduce using rule 45 (array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR .)
+    LEFT_COR        reduce using rule 45 (array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR .)
+    END             reduce using rule 45 (array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR .)
+    ELSE            reduce using rule 45 (array_implicito -> PERCENT_W LEFT_COR values_space RIGHT_COR .)
+
+
+state 98
+
+    (26) values_space -> value SPACE . values_space
+    (25) values_space -> . value
+    (26) values_space -> . value SPACE values_space
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    value                          shift and go to state 86
+    values_space                   shift and go to state 105
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 99
+
+    (47) array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR .
+
+    $end            reduce using rule 47 (array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR .)
+    LEFT_COR        reduce using rule 47 (array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR .)
+    END             reduce using rule 47 (array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR .)
+    ELSE            reduce using rule 47 (array_creacion -> ARRAY LEFT_PAR array_explicito RIGHT_PAR .)
+
+
+state 100
+
+    (49) array_new -> ARRAY DOT NEW LEFT_PAR . INTEGER RIGHT_PAR
+    (50) array_new -> ARRAY DOT NEW LEFT_PAR . INTEGER COMMA values RIGHT_PAR
+
+    INTEGER         shift and go to state 106
+
+
+state 101
+
+    (36) gets -> GETS DOT CHOMP DOT TO_F .
+
+    $end            reduce using rule 36 (gets -> GETS DOT CHOMP DOT TO_F .)
+    END             reduce using rule 36 (gets -> GETS DOT CHOMP DOT TO_F .)
+    ELSE            reduce using rule 36 (gets -> GETS DOT CHOMP DOT TO_F .)
+
+
+state 102
+
+    (54) if_statement -> IF condiciones NEWLINE codigo END .
+
+    $end            reduce using rule 54 (if_statement -> IF condiciones NEWLINE codigo END .)
+    END             reduce using rule 54 (if_statement -> IF condiciones NEWLINE codigo END .)
+    ELSE            reduce using rule 54 (if_statement -> IF condiciones NEWLINE codigo END .)
+
+
+state 103
+
+    (55) if_statement -> IF condiciones NEWLINE codigo else_statement . END
+
+    END             shift and go to state 107
+
+
+state 104
+
+    (56) else_statement -> ELSE . NEWLINE codigo
+
+    NEWLINE         shift and go to state 108
+
+
+state 105
+
+    (26) values_space -> value SPACE values_space .
+
+    RIGHT_COR       reduce using rule 26 (values_space -> value SPACE values_space .)
+
+
+state 106
+
+    (49) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER . RIGHT_PAR
+    (50) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER . COMMA values RIGHT_PAR
+
+    RIGHT_PAR       shift and go to state 109
+    COMMA           shift and go to state 110
+
+
+state 107
+
+    (55) if_statement -> IF condiciones NEWLINE codigo else_statement END .
+
+    $end            reduce using rule 55 (if_statement -> IF condiciones NEWLINE codigo else_statement END .)
+    END             reduce using rule 55 (if_statement -> IF condiciones NEWLINE codigo else_statement END .)
+    ELSE            reduce using rule 55 (if_statement -> IF condiciones NEWLINE codigo else_statement END .)
+
+
+state 108
+
+    (56) else_statement -> ELSE NEWLINE . codigo
+    (1) codigo -> . puts
+    (2) codigo -> . gets
+    (3) codigo -> . estructura_datos
+    (4) codigo -> . estructura_control
+    (5) codigo -> . llamada_metodo
+    (6) codigo -> . declaracion_variable
+    (7) codigo -> . almacenar_resultado_condicional
+    (8) codigo -> . declaracion_estructura_datos
+    (9) codigo -> . condiciones_con_conectores
+    (38) puts -> . PUTS values
+    (36) gets -> . GETS DOT CHOMP DOT TO_F
+    (37) gets -> . GETS DOT CHOMP
+    (10) estructura_datos -> . array
+    (11) estructura_datos -> . variable_arreglo
+    (12) estructura_datos -> . acceder_arreglo
+    (13) estructura_control -> . if_statement
+    (18) llamada_metodo -> . variable LEFT_PAR values RIGHT_PAR
+    (19) llamada_metodo -> . variable LEFT_PAR RIGHT_PAR
+    (14) declaracion_variable -> . variable ASSIGN value
+    (15) almacenar_resultado_condicional -> . variable ASSIGN condiciones
+    (16) declaracion_estructura_datos -> . variable_arreglo
+    (17) condiciones_con_conectores -> . condiciones conectores condiciones
+    (39) array -> . array_explicito
+    (40) array -> . array_implicito
+    (41) array -> . array_creacion
+    (42) array -> . array_new
+    (51) variable_arreglo -> . variable
+    (52) variable_arreglo -> . variable ASSIGN array
+    (53) acceder_arreglo -> . variable_arreglo LEFT_COR INTEGER RIGHT_COR
+    (54) if_statement -> . IF condiciones NEWLINE codigo END
+    (55) if_statement -> . IF condiciones NEWLINE codigo else_statement END
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (57) condiciones -> . condicion
+    (58) condiciones -> . condiciones conectores condiciones
+    (43) array_explicito -> . LEFT_COR values RIGHT_COR
+    (44) array_explicito -> . LEFT_COR RIGHT_COR
+    (45) array_implicito -> . PERCENT_W LEFT_COR values_space RIGHT_COR
+    (46) array_implicito -> . PERCENT_W LEFT_COR RIGHT_COR
+    (47) array_creacion -> . ARRAY LEFT_PAR array_explicito RIGHT_PAR
+    (48) array_new -> . ARRAY DOT NEW
+    (49) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR
+    (50) array_new -> . ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR
+    (59) condicion -> . numero operador_comparacion numero
+    (60) condicion -> . variable operador_comparacion numero
+    (61) condicion -> . numero operador_comparacion variable
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    PUTS            shift and go to state 11
+    GETS            shift and go to state 12
+    IF              shift and go to state 25
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    LEFT_COR        shift and go to state 23
+    PERCENT_W       shift and go to state 32
+    ARRAY           shift and go to state 33
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    codigo                         shift and go to state 111
+    puts                           shift and go to state 2
+    gets                           shift and go to state 3
+    estructura_datos               shift and go to state 4
+    estructura_control             shift and go to state 5
+    llamada_metodo                 shift and go to state 6
+    declaracion_variable           shift and go to state 7
+    almacenar_resultado_condicional shift and go to state 8
+    declaracion_estructura_datos   shift and go to state 9
+    condiciones_con_conectores     shift and go to state 10
+    array                          shift and go to state 13
+    variable_arreglo               shift and go to state 14
+    acceder_arreglo                shift and go to state 15
+    if_statement                   shift and go to state 16
+    variable                       shift and go to state 17
+    condiciones                    shift and go to state 18
+    array_explicito                shift and go to state 19
+    array_implicito                shift and go to state 20
+    array_creacion                 shift and go to state 21
+    array_new                      shift and go to state 22
+    condicion                      shift and go to state 31
+    numero                         shift and go to state 34
+
+state 109
+
+    (49) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR .
+
+    $end            reduce using rule 49 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR .)
+    LEFT_COR        reduce using rule 49 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR .)
+    END             reduce using rule 49 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR .)
+    ELSE            reduce using rule 49 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER RIGHT_PAR .)
+
+
+state 110
+
+    (50) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA . values RIGHT_PAR
+    (27) values -> . value
+    (28) values -> . value COMMA values
+    (20) value -> . variable
+    (21) value -> . numero
+    (22) value -> . STRING
+    (23) value -> . NIL
+    (24) value -> . SYMBOL
+    (29) variable -> . LOCAL_VARIABLE
+    (30) variable -> . INSTANCE_VARIABLE
+    (31) variable -> . CLASS_VARIABLE
+    (32) variable -> . GLOBAL_VARIABLE
+    (33) variable -> . CONSTANT
+    (34) numero -> . FLOAT
+    (35) numero -> . INTEGER
+
+    STRING          shift and go to state 40
+    NIL             shift and go to state 41
+    SYMBOL          shift and go to state 42
+    LOCAL_VARIABLE  shift and go to state 26
+    INSTANCE_VARIABLE shift and go to state 27
+    CLASS_VARIABLE  shift and go to state 28
+    GLOBAL_VARIABLE shift and go to state 29
+    CONSTANT        shift and go to state 30
+    FLOAT           shift and go to state 35
+    INTEGER         shift and go to state 24
+
+    values                         shift and go to state 112
+    value                          shift and go to state 37
+    variable                       shift and go to state 38
+    numero                         shift and go to state 39
+
+state 111
+
+    (56) else_statement -> ELSE NEWLINE codigo .
+
+    END             reduce using rule 56 (else_statement -> ELSE NEWLINE codigo .)
+
+
+state 112
+
+    (50) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values . RIGHT_PAR
+
+    RIGHT_PAR       shift and go to state 113
+
+
+state 113
+
+    (50) array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR .
+
+    $end            reduce using rule 50 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR .)
+    LEFT_COR        reduce using rule 50 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR .)
+    END             reduce using rule 50 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR .)
+    ELSE            reduce using rule 50 (array_new -> ARRAY DOT NEW LEFT_PAR INTEGER COMMA values RIGHT_PAR .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for AND in state 80 resolved as shift
+WARNING: shift/reduce conflict for OR in state 80 resolved as shift
+WARNING: shift/reduce conflict for AND_RESERVED in state 80 resolved as shift
+WARNING: shift/reduce conflict for OR_RESERVED in state 80 resolved as shift
+WARNING: shift/reduce conflict for AND in state 96 resolved as shift
+WARNING: shift/reduce conflict for OR in state 96 resolved as shift
+WARNING: shift/reduce conflict for AND_RESERVED in state 96 resolved as shift
+WARNING: shift/reduce conflict for OR_RESERVED in state 96 resolved as shift
+WARNING: reduce/reduce conflict in state 14 resolved using rule (estructura_datos -> variable_arreglo)
+WARNING: rejected rule (declaracion_estructura_datos -> variable_arreglo) in state 14
+WARNING: Rule (declaracion_estructura_datos -> variable_arreglo) is never reduced

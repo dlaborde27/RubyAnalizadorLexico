@@ -22,6 +22,12 @@ palabras_reservadas = {
     'until': 'UNTIL',
     'when': 'WHEN',
     'while': 'WHILE',
+    'and': 'AND_RESERVED',
+    'or': 'OR_RESERVED',
+    'then': 'THEN',
+    'Set' : 'SET',
+    'Proc' : 'PROC',
+    'call' : 'CALL',
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
     # Otros términos o métodos comunes
@@ -95,8 +101,8 @@ tokens = (
     'AND',
     'NOT',
     'OR',
-    'BIT_AND',
-    'BIT_OR',
+    'AMPERSAND',
+    'PIPE',
 
     # Caracteres especiales y de escape
     'BACKSLASH',
@@ -162,11 +168,11 @@ t_MULTIPLY_ASSIGN = r'\*='
 t_PLUS_ASSIGN = r'\+='
 
 # Operadores lógicos y de bits
-t_AND = r'&'
-t_BIT_AND = r'&'
-t_BIT_OR = r'\|'
+t_AND = r'&&'
+t_AMPERSAND = r'&'
+t_PIPE = r'\|'
 t_NOT = r'!'
-t_OR = r'\|'
+t_OR = r'\|\|'
 
 # Caracteres especiales y de escape
 t_SPACE = r'\s'
@@ -235,7 +241,8 @@ def t_DOUBLE_QUOTE(t):
     t.value = '"'
     return t
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
-
+def llamada_lexer():
+    lexer = lex.lex()
 #INICIO DARIO LABORDE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO DARIO LABORDE
 def ejecutarAnalizador(algoritmo_ruby, usuario_github, fecha_hora):
     lexer = lex.lex()
@@ -248,7 +255,7 @@ def ejecutarAnalizador(algoritmo_ruby, usuario_github, fecha_hora):
         print(token)
         tokens.append(token)
 
-    filename = f"./logs/lexico-{usuario_github}-{fecha_hora.strftime('%d%m%Y-%Hh%M')}.txt"
+    filename = f"./logs/lexico/lexico-{usuario_github}-{fecha_hora.strftime('%d%m%Y-%Hh%M')}.txt"
 
     with open(filename, "w") as file:
         for token in tokens:

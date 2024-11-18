@@ -1,5 +1,5 @@
 import datetime
-import analizador.analizador_lexico as analizador
+import analizadores.analizador_lexico as analizador
 
 usuarios_github = ['dlaborde27','jordansalinasp10']
 print('Seleccione su usuario de Github: ')
