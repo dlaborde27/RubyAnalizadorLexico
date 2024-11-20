@@ -31,6 +31,7 @@ palabras_reservadas = {
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
     # Otros términos o métodos comunes
+
     'array': 'ARRAY',
     'chomp': 'CHOMP',
     'defined?': 'DEFINED',
@@ -77,6 +78,9 @@ tokens = (
     'SPACESHIP',
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+    'CARET',
+    'LBRACE',
+    'RBRACE',
     # Puntuación y operadores de separación
     'COLON',
     'COMMA',
@@ -147,6 +151,9 @@ t_SPACESHIP = r'<=>'
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 
 #INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+t_CARET = r'\^'
+t_LBRACE = r'\{'
+t_RBRACE = r'\}'
 # Puntuación y operadores de separación
 t_COLON = r':'
 t_COMMA = r','

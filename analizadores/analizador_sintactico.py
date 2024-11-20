@@ -150,6 +150,162 @@ def p_error(p):
     print(error_msg)
 #FIN DARIO LABORDE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN DARIO LABORDE
 
+#INICIO JORDAN SALINAS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> INICIO JORDAN SALINAS
+
+# Estructuras de datos (hash)
+def p_hash_declaration(p):
+    ''' hash_declaration : HASH LEFT_COR values RIGHT_COR
+                         | HASH LEFT_COR RIGHT_COR
+    '''
+
+def p_hash_access(p):
+    ''' hash_access : variable LEFT_COR value RIGHT_COR
+    '''
+
+def p_hash_operations(p):
+    ''' hash_operations : hash_access ASSIGN value
+    '''
+
+
+
+# Estructuras de control (while)
+def p_while_statement(p):
+    ''' while_statement : WHILE condiciones COLON codigo
+    '''
+
+
+
+def p_print_statement(p):
+    ''' print_statement : PUTS LEFT_PAR values RIGHT_PAR
+    '''
+
+# Expresiones
+def p_boolean_expression(p):
+    ''' boolean_expression : expression GREATER_THAN expression
+                           | expression LESS_THAN expression
+                           | expression GREATER_THAN_EQUAL expression
+                           | expression LESS_THAN_EQUAL expression
+                           | expression EQUAL expression
+                           | expression NOT_EQUAL expression
+                           | BOOLEAN '''
+
+def p_expression(p):
+    ''' expression : INTEGER
+                   | FLOAT
+                   | variable
+                   | STRING '''
+
+# Declaraciones
+def p_declaraciones(p):
+    ''' declaraciones : declaracion_variable
+                      | almacenar_resultado_condicional
+                      | declaracion_estructura_datos
+    '''
+
+# Expresiones
+def p_expresion(p):
+    ''' expresion : puts
+                 | gets
+                 | print_statement
+    '''
+
+
+def p_set_expression(p):
+    """set_expression : SET DOT NEW LEFT_PAR LEFT_COR values RIGHT_COR RIGHT_PAR
+                      | SET LEFT_COR values RIGHT_COR"""
+
+def p_set_operations(p):
+    """set_operations : set_expression
+                      | set_operations set_binary_operators set_expression"""
+
+def p_set_declaration(p):
+    """declaracion_estructura_datos : LOCAL_VARIABLE ASSIGN set_expression"""
+
+def p_set_binary_operators(p):
+    """set_binary_operators : PLUS
+                            | MINUS
+                            | AMPERSAND
+                            | PIPE
+                            | CARET"""
+
+def p_unless_expression(p):
+    """unless_expression : UNLESS boolean_expression THEN expresion END
+                         | UNLESS boolean_expression THEN expresion ELSE expresion END"""
+
+def p_arithmetic_expression(p):
+    """expresion : arithmetic_production"""
+
+def p_arithmetic_production(p):
+    """arithmetic_production : numero
+                             | variable
+                             | numero arithmetic_operators arithmetic_production
+                             | variable arithmetic_operators arithmetic_production"""
+
+def p_arithmetic_operators(p):
+    """arithmetic_operators : PLUS
+                            | MINUS
+                            | MULTIPLY
+                            | DIVIDE
+                            | MODULO
+                            | EXPONENT"""
+
+def p_block_expression(p):
+    """block_expression : LBRACE expresion RBRACE
+                         | DO expresion END
+                         | LBRACE PIPE LOCAL_VARIABLE PIPE expresion RBRACE
+                         | DO PIPE LOCAL_VARIABLE PIPE expresion END"""
+
+def p_block_assignment(p):
+    """block_assignment : llamada_metodo block_expression"""
+
+def p_proc_expression(p):
+    """proc_expression : PROC DOT NEW block_expression"""
+
+def p_proc_assignment(p):
+    """proc_assignment : LOCAL_VARIABLE ASSIGN proc_expression"""
+
+def p_proc_call(p):
+    """proc_call : LOCAL_VARIABLE DOT CALL LEFT_PAR values RIGHT_PAR
+                 | LOCAL_VARIABLE DOT LEFT_PAR values RIGHT_PAR
+                 | LOCAL_VARIABLE LEFT_COR values RIGHT_COR"""
+
+def p_condition_expr(p):
+    """expresion : condiciones_con_conectores"""
+
+algoritmo_jordansalinasp10 = """
+nombre = "María"
+edad = 30
+es_mayor_de_edad = edad >= 18
+
+puts "Hola, #{nombre}. Tienes #{edad} años."
+puts "¿Eres mayor de edad? #{es_mayor_de_edad}"
+
+persona = { nombre: "Carlos", edad: 25, ciudad: "Bogotá" }
+puts "Información de la persona: #{persona}"
+persona[:edad] = 26
+puts "Edad actualizada: #{persona[:edad]
+
+if edad < 18
+  puts "Eres menor de edad."
+elsif edad == 18
+  puts "¡Acabas de cumplir la mayoría de edad!"
+else
+  puts "Eres mayor de edad."
+end
+
+def saludo_personalizado(nombre, hora)
+  if hora < 12
+    "Buenos días, #{nombre}."
+  elsif hora < 18
+    "Buenas tardes, #{nombre}."
+  else
+    "Buenas noches, #{nombre}."
+  end
+end
+
+"""
+#FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
+
 
 algoritmo_dlaborde = """
 variable1 = 10
@@ -219,11 +375,11 @@ parser = yacc.yacc()
 #    result = parser.parse(s)
 #    print(result)
 
-log_filename = f"../logs/sintactico/sintactico-dlaborde27-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
-
+#log_filename = f"../logs/sintactico/sintactico-dlaborde27-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
+log_filename = f"../logs/sintactico/sintactico-jordansalinasp10-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
 print("Ruta completa:", log_filename )
 with open(log_filename , "w") as f:
     sys.stdout = f
-    result = parser.parse(algoritmo_dlaborde)
+    result = parser.parse(algoritmo_jordansalinasp10)
     sys.stdout = sys.__stdout__
     print("Análisis completado. Los errores sintácticos se han guardado en el archivo de registro:", log_filename)
