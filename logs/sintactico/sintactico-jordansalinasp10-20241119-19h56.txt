@@ -1,0 +1,7 @@
+Error de sintaxis en linea 2, posicion 10: Token inesperado '"María"' 
+'LexToken(STRING,'"María"',2,10)'
+Error de sintaxis en linea 11, posicion 272: Token inesperado '=' 
+'LexToken(ASSIGN,'=',11,272)'
+Token no admitido '¡' en la linea 12
+Error de sintaxis en linea 14, posicion 571: Token inesperado '"Buenas tardes, #{nombre}."' 
+'LexToken(STRING,'"Buenas tardes, #{nombre}."',14,571)'

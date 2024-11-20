@@ -303,6 +303,30 @@ def saludo_personalizado(nombre, hora)
   end
 end
 
+x = 10
+y = 5
+z = x * y - (x + y)
+puts "Resultado de la operación: #{z}"
+
+dia = "lunes"
+case dia
+when "lunes"
+  puts "Inicio de semana"
+when "viernes"
+  puts "Fin de semana cercano"
+else
+  puts "Es un día común"
+end
+
+
+numeros = [1, 2, 3, 4]
+numeros.each { |n| puts "Número: #{n}, Cuadrado: #{cuadrado(n)}" }
+if x > y
+  puts "#{x} es mayor que #{y}"
+else
+  puts "#{y} es mayor o igual a #{x}"
+end
+
 """
 #FIN JORDAN SALINAS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FIN JORDAN SALINAS
 
