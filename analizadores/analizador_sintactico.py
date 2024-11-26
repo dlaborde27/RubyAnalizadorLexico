@@ -1,6 +1,8 @@
 import datetime
 import sys
 import ply.yacc as yacc
+from ply import lex
+
 from analizadores.analizador_lexico import palabras_reservadas, tokens
 import analizadores.analizador_lexico as analizador
 
@@ -388,7 +390,6 @@ if variable1 <=> variable2
 end
 """
 
-analizador.llamada_lexer()
 parser = yacc.yacc()
 # while True:
 #    try:
@@ -400,10 +401,16 @@ parser = yacc.yacc()
 #    print(result)
 
 #log_filename = f"../logs/sintactico/sintactico-dlaborde27-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
-log_filename = f"../logs/sintactico/sintactico-jordansalinasp10-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
-print("Ruta completa:", log_filename )
-with open(log_filename , "w") as f:
-    sys.stdout = f
-    result = parser.parse(algoritmo_jordansalinasp10)
-    sys.stdout = sys.__stdout__
-    print("Análisis completado. Los errores sintácticos se han guardado en el archivo de registro:", log_filename)
+# log_filename = f"../logs/sintactico/sintactico-jordansalinasp10-{datetime.datetime.now().strftime('%Y%m%d-%Hh%M')}.txt"
+# print("Ruta completa:", log_filename )
+# with open(log_filename , "w") as f:
+#     sys.stdout = f
+#     result = parser.parse(algoritmo_jordansalinasp10)
+#     sys.stdout = sys.__stdout__
+#     print("Análisis completado. Los errores sintácticos se han guardado en el archivo de registro:", log_filename)
+#
+
+def llamada_lexer():
+    global lexer
+    lexer = lex.lex()
+
