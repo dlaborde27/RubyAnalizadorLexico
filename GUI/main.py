@@ -1,4 +1,6 @@
 import tkinter as tk
+from PIL import Image, ImageTk
+
 import analizadores.analizador_lexico as lexical
 import analizadores.analizador_sintactico as syntax
 import sys
@@ -34,10 +36,12 @@ def on_run():
     run_ruby(input_text_content)
 
 root = tk.Tk()
-root.title("Analizador de ruby")
+root.title("Ruby Analyzer")
+root.geometry("800x600")
+root.resizable(True, True)
 
-frame_code = tk.Frame(root, bg="darkgrey")
-frame_console = tk.Frame(root, bg="darkgrey")
+frame_code = tk.Frame(root, bg="#2D2D2D")
+frame_console = tk.Frame(root, bg="#2D2D2D")
 
 frame_code.grid(row=0, column=0, sticky="nsew")
 frame_console.grid(row=0, column=1, sticky="nsew")
@@ -48,14 +52,24 @@ root.grid_rowconfigure(0, weight=1)
 
 button_run = tk.Button(frame_code, text="Run", bg="red", fg="white", command=on_run, width=8, height=2)
 button_run.place(relx=0.5, rely=0, anchor="n")
+button_run.config(relief=tk.RAISED)
 
-text_code = tk.Text(frame_code, wrap=tk.WORD, bg="lightgrey", fg="black")
-text_code.place(relx=0.5, rely=0.1, anchor="n", relwidth=0.9, relheight=0.9)
+text_code = tk.Text(frame_code, wrap=tk.WORD, font=("Consolas", 12), fg="#FFFFFF", bg="#1E1E1E")
+text_code.place(relx=0.05, rely=0.05, relwidth=0.4, relheight=0.9)
 
-label_console = tk.Label(frame_console, text="Console", bg="darkgrey", fg="black")
+label_console = tk.Label(frame_console, text="Console", bg="#2D2D2D", fg="#FFFFFF")
 label_console.place(relx=0.5, rely=0.05, anchor="n")
 
-text_console = tk.Text(frame_console, wrap=tk.WORD, bg="lightgrey", fg="black", state=tk.DISABLED)
-text_console.place(relx=0.5, rely=0.15, anchor="n", relwidth=0.9, relheight=0.8)
+text_console = tk.Text(frame_console, wrap=tk.WORD, font=("Consolas", 12), fg="#FFFFFF", bg="#1E1E1E", state=tk.DISABLED)
+text_console.place(relx=0.55, rely=0.05, relwidth=0.4, relheight=0.9)
+text_console.config(fg="#DDDDDD")
 
+ruby_icon = Image.open("../src/ruby_icon.png")
+ruby_icon = ruby_icon.resize((48, 48), resample=Image.BILINEAR)
+ruby_icon = ImageTk.PhotoImage(ruby_icon)
+label_icon = tk.Label(frame_code, image=ruby_icon)
+label_icon.place(relx=0.85, rely=0.05)
+
+frame_code.config(highlightthickness=1, highlightbackground="#555555", highlightcolor="#555555", borderwidth=0)
+frame_console.config(highlightthickness=1, highlightbackground="#555555", highlightcolor="#555555", borderwidth=0)
 root.mainloop()
