@@ -170,9 +170,6 @@ def t_error(t):
     print(f"Token no admitido '{t.value[0]}' en la linea {t.lineno}")
     t.lexer.skip(1)
 
-def t_newLine(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
 
 t_ignore = ' \t'
 
@@ -181,8 +178,8 @@ def t_COMMENT(t):
     pass
 
 def t_NEWLINE(t):
-    r'\\n'
-    t.value = '\n'
+    r'\n'
+    t.lexer.lineno += 1
     return t
 
 def t_TAB(t):
