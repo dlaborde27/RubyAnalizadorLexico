@@ -1,6 +1,6 @@
 LexToken(CLASS,'class',1,0)
 LexToken(CONSTANT,'Book',1,6)
-LexToken(DEF,'def',2,13)
+LexToken(DEF,'def',2,13)w
 LexToken(LOCAL_VARIABLE,'initialize',2,17)
 LexToken(LOCAL_VARIABLE,'title',2,28)
 LexToken(LOCAL_VARIABLE,'author',2,35)
